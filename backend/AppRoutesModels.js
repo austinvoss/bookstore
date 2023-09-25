@@ -1,10 +1,18 @@
 const express = require("express");
 const { Pool } = require("pg");
+const cors = require("cors");
 const { check, validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// Enable CORS for all routes
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  })
+);
 
 // Database Connection
 const pool = new Pool({
