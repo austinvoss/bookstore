@@ -1,12 +1,16 @@
 import React from "react";
-import BookList from "./components/BookList";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { LandingPage, BookDetailsPage } from "./pages/Pages";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <BookList />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/books/:id" element={<BookDetailsPage />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
